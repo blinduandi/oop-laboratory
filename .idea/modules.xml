@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Display/Display.iml" filepath="$PROJECT_DIR$/Display/Display.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TextParsing/TextParsing.iml" filepath="$PROJECT_DIR$/TextParsing/TextParsing.iml" />
       <module fileurl="file://$PROJECT_DIR$/oop-intermediate-tasks.iml" filepath="$PROJECT_DIR$/oop-intermediate-tasks.iml" />
     </modules>
   </component>
