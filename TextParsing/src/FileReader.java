@@ -22,7 +22,6 @@ public class FileReader {
         }catch (FileNotFoundException e) {
             System.out.println("An error occurred reading the file."+e);
             System.exit(0);
-
         }
     }
 }
