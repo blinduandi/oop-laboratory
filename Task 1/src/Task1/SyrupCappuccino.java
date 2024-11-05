@@ -8,6 +8,10 @@ public class SyrupCappuccino extends Cappuccino{
         super(intensity, mlOfMilk);
         this.syrup = syrup;
     }
+    public void printCoffeeDetails() {
+        super.printCoffeeDetails();
+        System.out.println("Syrup: " + syrup);
+    }
 
     public static String getName(){
         return name;

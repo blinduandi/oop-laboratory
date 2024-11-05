@@ -8,6 +8,11 @@ public class Cappuccino extends Coffee{
         this.mlOfMilk = mlOfMilk;
     }
 
+    @Override
+    public void printCoffeeDetails() {
+        super.printCoffeeDetails();;
+        System.out.println("Milk: " + mlOfMilk + "ml");
+    }
     public static String getName() {
         return name;
     }
