@@ -10,7 +10,8 @@ public class PumpkinSpiceLatte extends Coffee{
         this.mgOfPumpkinSpice = mgOfPumpkinSpice;
     }
 
-    public PumpkinSpiceLatte makePumpkinSpiceLatte() {
+    @Override
+    public PumpkinSpiceLatte makeCoffee() {
         System.out.println("~~~ Crafting Your Pumpkin Spice Latte ~~~");
         System.out.printf("1. Intensity Level: %s%n", getInetnisity());
         System.out.println("2. Espresso Shot: Brewed rich and strong");
@@ -21,8 +22,8 @@ public class PumpkinSpiceLatte extends Coffee{
     }
 
     @Override
-    public void printCoffeeDetails() {
-        super.printCoffeeDetails();
+    public void printCoffeeDetails(String name) {
+        super.printCoffeeDetails(this.name);
         System.out.println("Adding " + mlOfMilk + " ml of milk");
         System.out.println("Adding " + mgOfPumpkinSpice + " mg of pumpkin spice");
     }

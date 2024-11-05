@@ -7,7 +7,8 @@ public class Cappuccino extends Coffee{
         super(intensity);
         this.mlOfMilk = mlOfMilk;
     }
-    public Cappuccino makeCappuccino() {
+    @Override
+    public Cappuccino makeCoffee() {
         System.out.println(">> Preparing a Classic Cappuccino <<");
         System.out.printf(" - Coffee Bean Intensity Level: %s%n", getInetnisity());
         System.out.println(" - Espresso Shot: Brewed to perfection");
@@ -19,8 +20,8 @@ public class Cappuccino extends Coffee{
 
 
     @Override
-    public void printCoffeeDetails() {
-        super.printCoffeeDetails();;
+    public void printCoffeeDetails(String name) {
+        super.printCoffeeDetails(this.name);
         System.out.println("Milk: " + mlOfMilk + "ml");
     }
     public static String getName() {

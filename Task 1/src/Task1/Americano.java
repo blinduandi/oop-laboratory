@@ -11,11 +11,12 @@ public class Americano extends Coffee{
     }
 
     @Override
-    public void printCoffeeDetails() {
-        super.printCoffeeDetails();
+    public void printCoffeeDetails(String name) {
+        super.printCoffeeDetails(this.name);
         System.out.println("Water: " + mlOfWater + " ml");
     }
-    public Americano makeAmericano() {
+    @Override
+    public Americano makeCoffee() {
         System.out.println("=== Americano Preparation ===");
         System.out.printf("1. Coffee Intensity: [%s]%n", getInetnisity());
         System.out.println("2. Coffee Grounds - Ready");
