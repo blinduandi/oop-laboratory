@@ -10,6 +10,16 @@ public class PumpkinSpiceLatte extends Coffee{
         this.mgOfPumpkinSpice = mgOfPumpkinSpice;
     }
 
+    public PumpkinSpiceLatte makePumpkinSpiceLatte() {
+        System.out.println("~~~ Crafting Your Pumpkin Spice Latte ~~~");
+        System.out.printf("1. Intensity Level: %s%n", getInetnisity());
+        System.out.println("2. Espresso Shot: Brewed rich and strong");
+        System.out.printf("3. Steaming Milk: %d ml with %d mg of pumpkin spice for a seasonal touch%n", mlOfMilk, mgOfPumpkinSpice);
+        System.out.println("4. Blending spiced milk with espresso and adding a delicate foam layer");
+        System.out.println(">>> Your Pumpkin Spice Latte is ready to enjoy! <<<");
+        return this;
+    }
+
     @Override
     public void printCoffeeDetails() {
         super.printCoffeeDetails();

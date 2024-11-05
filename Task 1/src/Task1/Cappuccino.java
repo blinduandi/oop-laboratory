@@ -7,6 +7,16 @@ public class Cappuccino extends Coffee{
         super(intensity);
         this.mlOfMilk = mlOfMilk;
     }
+    public Cappuccino makeCappuccino() {
+        System.out.println(">> Preparing a Classic Cappuccino <<");
+        System.out.printf(" - Coffee Bean Intensity Level: %s%n", getInetnisity());
+        System.out.println(" - Espresso Shot: Brewed to perfection");
+        System.out.printf(" - Milk Steamed: %d ml, achieving creamy texture%n", mlOfMilk);
+        System.out.println(" - Combining espresso with steamed milk and adding a layer of foam");
+        System.out.println("=> Your Cappuccino is now ready to enjoy!");
+        return this;
+    }
+
 
     @Override
     public void printCoffeeDetails() {
