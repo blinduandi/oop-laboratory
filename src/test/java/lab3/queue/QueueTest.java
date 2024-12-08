@@ -5,6 +5,7 @@ import main.java.lab3.queue.CircularQueue;
 import main.java.lab3.queue.PriorityQueueImpl;
 import main.java.lab3.queue.Queue;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class QueueTest {

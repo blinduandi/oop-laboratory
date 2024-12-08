@@ -4,8 +4,6 @@ package test.java.lab3.services;
 import main.java.lab3.service.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 class ServiceTest {
 
     @Test
