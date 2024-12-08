@@ -1,6 +1,5 @@
 package test.java.lab3.station;
 
-
 import main.java.lab3.model.Car;
 import main.java.lab3.queue.BasicQueue;
 import main.java.lab3.queue.Queue;
@@ -20,39 +19,32 @@ class CarStationTest {
 
     @Test
     void testAddCar() {
-        // Create a queue and services
         Queue<Car> queue = new BasicQueue<>();
         Dineable diningService = new PeopleDinner();
         Refuelable refuelingService = new ElectricStation();
 
-        // Create the CarStation
         CarStation carStation = new CarStation(diningService, refuelingService, queue);
 
-        // Add cars to the CarStation
-        Car car1 = new Car("1", "ELECTRIC", "PEOPLE", true);
-        Car car2 = new Car("2", "ELECTRIC", "PEOPLE", false);
+        Car car1 = new Car("1", "ELECTRIC", "PEOPLE", true, 45);
+        Car car2 = new Car("2", "ELECTRIC", "ROBOTS", false, 34);
 
         carStation.addCar(car1);
         carStation.addCar(car2);
 
-        // Verify that the cars are added to the queue
-        assertEquals(2, queue.size());
-        assertFalse(queue.isEmpty());
+        assertEquals(2, carStation.getAddedCars());
+        assertFalse(carStation.isEmpty());
     }
 
     @Test
     void testServeCars() {
-        // Create a queue and services
         Queue<Car> queue = new BasicQueue<>();
-        Dineable diningService = new TestDineable(); // Custom test implementation
-        Refuelable refuelingService = new TestRefuelable(); // Custom test implementation
+        TestDineable diningService = new TestDineable();
+        TestRefuelable refuelingService = new TestRefuelable();
 
-        // Create the CarStation
         CarStation carStation = new CarStation(diningService, refuelingService, queue);
 
-        // Add cars to the CarStation
-        Car car1 = new Car("1", "ELECTRIC", "PEOPLE", true);
-        Car car2 = new Car("2", "GAS", "ROBOTS", false);
+        Car car1 = new Car("1", "ELECTRIC", "PEOPLE", true, 45);
+        Car car2 = new Car("2", "GAS", "ROBOTS", false, 23);
 
         carStation.addCar(car1);
         carStation.addCar(car2);
@@ -60,23 +52,20 @@ class CarStationTest {
         // Serve the cars
         carStation.serveCars();
 
-        // Verify that the queue is empty after serving all cars
-        assertEquals(0, queue.size());
-        assertTrue(queue.isEmpty());
+        assertEquals(0, carStation.getQueue().size());
+        assertTrue(carStation.isEmpty());
 
-        // Verify that the services were invoked correctly
-        TestDineable testDineable = (TestDineable) diningService;
-        TestRefuelable testRefuelable = (TestRefuelable) refuelingService;
+        assertEquals(1, diningService.getServedCars().size());
+        assertTrue(diningService.getServedCars().contains("1")); // Car 1 dined
 
-        assertEquals(1, testDineable.getServedCars().size());
-        assertTrue(testDineable.getServedCars().contains("1")); // Car 1 dined
-
-        assertEquals(2, testRefuelable.getRefueledCars().size());
-        assertTrue(testRefuelable.getRefueledCars().contains("1")); // Car 1 refueled
-        assertTrue(testRefuelable.getRefueledCars().contains("2")); // Car 2 refueled
+        assertEquals(2, carStation.getCarsServed());
+        assertEquals(1, carStation.getPeopleFed());
+        assertEquals(1, carStation.getRobotsFed());
+        assertEquals(1, carStation.getDiningCars());
+        assertEquals(1, carStation.getNonDiningCars());
+        assertEquals(45 + 23, carStation.getTotalConsumption()); // Total consumption
     }
 
-    // Helper class for testing Dineable
     private static class TestDineable implements Dineable {
         private final List<String> servedCars = new ArrayList<>();
 
@@ -90,7 +79,6 @@ class CarStationTest {
         }
     }
 
-    // Helper class for testing Refuelable
     private static class TestRefuelable implements Refuelable {
         private final List<String> refueledCars = new ArrayList<>();
 
