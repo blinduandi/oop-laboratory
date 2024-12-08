@@ -20,6 +20,9 @@ public class CarStation {
     public void addCar(Car car) {
         queue.enqueue(car);
     }
+    public Queue<Car> getQueue() {
+        return queue;
+    }
 
     public void serveCars() {
         while (!queue.isEmpty()) {
